@@ -1,5 +1,5 @@
 <?php
-
+include 'client.php';
 
 class Personnephysique extends Client
 {
