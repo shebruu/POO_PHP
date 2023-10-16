@@ -78,7 +78,7 @@ class Main
 {
     public function main()
     {
-        $chanson = new Chanson("La Marseillaise", 300);
+        $chanson = new Chanson("power", 206);
         // Affiche le titre de la chanson
         /* si on utiilsait un retour de tableau
         // Convertit la durée en minutes et secondes
@@ -87,9 +87,9 @@ class Main
     */
 
         $minutes = $chanson->toMinutes();
-        echo $minutes;
 
-        echo $chanson->toString();
+
+        echo $chanson->toString() . '<br>';
     }
 }
 
