@@ -1,7 +1,10 @@
 <?php
 include 'chanson.php';
 
-
+/**
+ * @var string $auteur celui qui a "crit la chanson
+ * @var string $artiste chanteur-chanteuse
+ */
 class ChansonRiche extends Chanson
 {
     private string $auteur;
@@ -23,6 +26,12 @@ class ChansonRiche extends Chanson
         $duree_min_sec = parent::toMinutes() . "'" . parent::getDuree() % 60;
         //(minutes'secondes'')
         $duree_formate = "(" . $duree_min_sec . ")";
-        return $this->artiste . " - " . $titre . " - " . $duree_min_sec . " - (Auteur : " . $this->auteur . ")";
+
+        if ($this->auteur !== $this->artiste) {
+
+            return $this->artiste . " - " . $titre . " - " . $duree_min_sec . " - (Auteur : " . $this->auteur . ")";
+        } else {
+            return $this->artiste . " - " . $titre . " - " . $duree_min_sec;
+        }
     }
 }

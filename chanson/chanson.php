@@ -51,7 +51,8 @@ class Chanson
      */
     public function toMinutes()
     {
-        $minutes = intdiv($this->duree, 60);
+
+        $minutes = $this->duree / 60;
 
         /* pr retourner un tab 
         return [
@@ -64,11 +65,12 @@ class Chanson
 
     public function toString()
     {
-        // minutes'secondes''
+
         $titre = $this->chanson;
-        $duree_min_sec = $this->toMinutes() . "'" . $this->duree % 60;
+        $minutes = $this->toMinutes();
+        $secondes = $this->duree % 60;
         //(minutes'secondes'')
-        $duree_formate = "(" . $duree_min_sec . ")";
+        $duree_formate = "(" . $minutes . $secondes . ")";
 
         return $titre . " " . $duree_formate;
     }
@@ -79,12 +81,6 @@ class Main
     public function main()
     {
         $chanson = new Chanson("power", 206);
-        // Affiche le titre de la chanson
-        /* si on utiilsait un retour de tableau
-        // Convertit la durée en minutes et secondes
-        $duree = $chanson->toMinutes();
-        echo 'durée en seconde : ' . $duree['minutes'] . '-' . $duree["nom_chanson"];
-    */
 
         $minutes = $chanson->toMinutes();
 
